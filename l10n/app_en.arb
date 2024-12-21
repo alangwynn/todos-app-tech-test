@@ -1,3 +1,6 @@
 {
-    "loginTitle": "Todos App"
+    "loginTitle": "Todos App",
+    "usernameInputLabel": "Username",
+    "passwordInputLabel": "Password",
+    "loginButtonText": "Log in"
 }

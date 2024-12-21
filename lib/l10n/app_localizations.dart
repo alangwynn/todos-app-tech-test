@@ -100,6 +100,24 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Todos App'**
   String get loginTitle;
+
+  /// No description provided for @usernameInputLabel.
+  ///
+  /// In es, this message translates to:
+  /// **'Usuario'**
+  String get usernameInputLabel;
+
+  /// No description provided for @passwordInputLabel.
+  ///
+  /// In es, this message translates to:
+  /// **'Contraseña'**
+  String get passwordInputLabel;
+
+  /// No description provided for @loginButtonText.
+  ///
+  /// In es, this message translates to:
+  /// **'Ingresar'**
+  String get loginButtonText;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

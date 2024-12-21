@@ -8,4 +8,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get loginTitle => 'Todos App';
+
+  @override
+  String get usernameInputLabel => 'Username';
+
+  @override
+  String get passwordInputLabel => 'Password';
+
+  @override
+  String get loginButtonText => 'Log in';
 }
