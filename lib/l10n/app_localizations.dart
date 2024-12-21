@@ -101,11 +101,11 @@ abstract class AppLocalizations {
   /// **'Todos App'**
   String get loginTitle;
 
-  /// No description provided for @usernameInputLabel.
+  /// No description provided for @emailInputLabel.
   ///
   /// In es, this message translates to:
-  /// **'Usuario'**
-  String get usernameInputLabel;
+  /// **'Correo electrónico'**
+  String get emailInputLabel;
 
   /// No description provided for @passwordInputLabel.
   ///
@@ -118,6 +118,30 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Ingresar'**
   String get loginButtonText;
+
+  /// No description provided for @loginCreateAccountText.
+  ///
+  /// In es, this message translates to:
+  /// **'Crear cuenta'**
+  String get loginCreateAccountText;
+
+  /// No description provided for @registerScreenTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Registrarse'**
+  String get registerScreenTitle;
+
+  /// No description provided for @confirmPasswordInputLabel.
+  ///
+  /// In es, this message translates to:
+  /// **'Confirmar contraseña'**
+  String get confirmPasswordInputLabel;
+
+  /// No description provided for @registerScreenButtonText.
+  ///
+  /// In es, this message translates to:
+  /// **'Crear cuenta'**
+  String get registerScreenButtonText;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

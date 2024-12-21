@@ -24,5 +24,10 @@ final router = GoRouter(
       path: LoginScreen.routeName,
       builder: (_, __) => const LoginScreen()
     ),
+    GoRoute(
+      name: RegisterScreen.routeName,
+      path: RegisterScreen.routeName,
+      builder: (_, __) => RegisterScreen(),
+    ),
   ],
 );

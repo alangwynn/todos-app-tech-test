@@ -10,11 +10,23 @@ class AppLocalizationsEs extends AppLocalizations {
   String get loginTitle => 'Todos App';
 
   @override
-  String get usernameInputLabel => 'Usuario';
+  String get emailInputLabel => 'Correo electrónico';
 
   @override
   String get passwordInputLabel => 'Contraseña';
 
   @override
   String get loginButtonText => 'Ingresar';
+
+  @override
+  String get loginCreateAccountText => 'Crear cuenta';
+
+  @override
+  String get registerScreenTitle => 'Registrarse';
+
+  @override
+  String get confirmPasswordInputLabel => 'Confirmar contraseña';
+
+  @override
+  String get registerScreenButtonText => 'Crear cuenta';
 }

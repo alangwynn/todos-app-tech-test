@@ -1,27 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:loader_overlay/loader_overlay.dart';
 import 'package:technical_test_flutter_sr/common/extensions.dart';
 import 'package:technical_test_flutter_sr/common/widgets/widgets.dart';
+import 'package:technical_test_flutter_sr/features/login/presentation/providers/login/login_user_state_notifier.dart';
+import 'package:technical_test_flutter_sr/features/login/presentation/screens/screens.dart';
 import 'package:technical_test_flutter_sr/helpers/helpers.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
   static const routeName = '/login-screen';
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  final userController = TextEditingController();
+class _LoginScreenState extends ConsumerState<LoginScreen> {
+  final emailController = TextEditingController();
 
   final passwordController = TextEditingController();
 
   bool isButtonDisabled = true;
 
-  void disableButton(String userInputText, String passwordInputText) {
-    if (userInputText.isEmpty || passwordInputText.isEmpty) {
+  void disableButton(String emailInputText, String passwordInputText) {
+    if (emailInputText.isEmpty || passwordInputText.isEmpty) {
       isButtonDisabled = true;
     } else {
       isButtonDisabled = false;
@@ -33,32 +38,48 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
 
+    ref.listen(loginUserStateNotifierProvider, (previous, next) {
+      if (next.isLoading) {
+        context.loaderOverlay.show();
+      } else if (next.hasError) {
+        context.loaderOverlay.hide();
+        ToastOverlay.showToastMessage(
+          next.error.toString(),
+          ToastType.error,
+          context,
+        );
+      } else if (next.hasValue) {
+        context.loaderOverlay.hide();
+      }
+    });
+
     return Scaffold(
       body: SafeArea(
         top: false,
-        child: Column(
-          children: [
-            SizedBox(
-              height: 60.h,
-            ),
-            Image.asset(
-              AssetsHelper.taskAppLogo,
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            Expanded(
-              child: Container(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 60.h,
+              ),
+              Image.asset(
+                AssetsHelper.taskAppLogo,
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              Container(
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 24.0.w
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 24.0.w),
                 decoration: const BoxDecoration(
                   color: Color(0xFFEAEAEB),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30),
-                  )
+                  ),
+                ),
+                constraints: BoxConstraints(
+                  minHeight: MediaQuery.of(context).size.height - (60.h + 80.h),
                 ),
                 child: Column(
                   children: [
@@ -69,21 +90,22 @@ class _LoginScreenState extends State<LoginScreen> {
                       l10n.loginTitle,
                       style: TextStyle(
                         fontSize: 24.0.sp,
-                        fontWeight: FontWeight.w600
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     SizedBox(
                       height: 20.h,
                     ),
                     AGTextfield(
-                      label: l10n.usernameInputLabel,
+                      label: l10n.emailInputLabel,
                       prefixIcon: const Icon(
-                        Icons.account_circle_outlined,
+                        Icons.email_outlined,
                         color: Colors.blueGrey,
                       ),
-                      controller: userController,
+                      controller: emailController,
                       onChanged: (value) {
-                        disableButton(userController.text, passwordController.text);
+                        disableButton(
+                            emailController.text, passwordController.text);
                       },
                     ),
                     SizedBox(
@@ -91,9 +113,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     AGTextfieldPassword(
                       label: l10n.passwordInputLabel,
-                      controller: passwordController,  
+                      controller: passwordController,
                       onChanged: (value) {
-                        disableButton(userController.text, passwordController.text);
+                        disableButton(
+                            emailController.text, passwordController.text);
                       },
                     ),
                     SizedBox(
@@ -104,16 +127,36 @@ class _LoginScreenState extends State<LoginScreen> {
                       isExpanded: true,
                       disabled: isButtonDisabled,
                       onPressed: () {
+                        ref
+                            .read(loginUserStateNotifierProvider.notifier)
+                            .loginUser(
+                                email: emailController.text,
+                                password: passwordController.text);
                       },
                       child: Text(
                         l10n.loginButtonText,
                       ),
                     ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        GoRouter.of(context).push(RegisterScreen.routeName);
+                      },
+                      child: Text(
+                        l10n.loginCreateAccountText,
+                        style: TextStyle(
+                          fontSize: 12.0.sp,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );

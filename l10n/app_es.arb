@@ -1,6 +1,10 @@
 {
     "loginTitle": "Todos App",
-    "usernameInputLabel": "Usuario",
+    "emailInputLabel": "Correo electrónico",
     "passwordInputLabel": "Contraseña",
-    "loginButtonText": "Ingresar"
+    "loginButtonText": "Ingresar",
+    "loginCreateAccountText": "Crear cuenta",
+    "registerScreenTitle": "Registrarse",
+    "confirmPasswordInputLabel": "Confirmar contraseña",
+    "registerScreenButtonText": "Crear cuenta"
 }

@@ -1,6 +1,10 @@
 {
     "loginTitle": "Todos App",
-    "usernameInputLabel": "Username",
+    "emailInputLabel": "Email",
     "passwordInputLabel": "Password",
-    "loginButtonText": "Log in"
+    "loginButtonText": "Log in",
+    "loginCreateAccountText": "Create account",
+    "registerScreenTitle": "Sign up",
+    "confirmPasswordInputLabel": "Confirm password",
+    "registerScreenButtonText": "Create account"
 }

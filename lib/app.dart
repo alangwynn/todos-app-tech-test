@@ -18,7 +18,9 @@ class App extends ConsumerWidget {
     return GlobalLoaderOverlay(
       overlayWidgetBuilder: (_) {
         return const Center(
-          child: CircularProgressIndicator(),
+          child: CircularProgressIndicator(
+            color: Color(0xFF252529),
+          ),
         );
       },
       child: ScreenUtilInit(

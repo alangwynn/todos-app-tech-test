@@ -208,6 +208,13 @@ final class ApiHttpClient implements IHttpClient {
           if (e.response!.data != null) {
             final decodedJson = jsonDecode(e.response!.data);
             final mensaje = decodedJson['mensaje'];
+            if (mensaje == null) {
+              return left(
+                const ApiException(
+                  message: 'Something went wrong',
+                ),
+              ); 
+            }
             return left(
               ApiException(
                 message: mensaje,

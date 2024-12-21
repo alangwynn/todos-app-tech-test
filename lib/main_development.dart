@@ -10,7 +10,7 @@ void main() async {
 
   Settings.initialize(
     settingsMap: {
-      'API_URL': 'https://dev-env.com',
+      'API_URL': 'https://reqres.in',
     },
   );
 
