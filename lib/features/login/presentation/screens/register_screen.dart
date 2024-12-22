@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:loader_overlay/loader_overlay.dart';
 import 'package:technical_test_flutter_sr/common/extensions.dart';
 import 'package:technical_test_flutter_sr/common/widgets/widgets.dart';
+import 'package:technical_test_flutter_sr/features/login/presentation/providers/register/register_user_state_notifier.dart';
 import 'package:technical_test_flutter_sr/features/login/presentation/widgets/widgets.dart';
 
-class RegisterScreen extends StatefulWidget {
-  RegisterScreen({super.key});
+class RegisterScreen extends ConsumerStatefulWidget {
+  const RegisterScreen({super.key});
 
   static const routeName = '/register-screen';
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  ConsumerState<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   final emailController = TextEditingController();
 
   final passwordController = TextEditingController();
@@ -22,9 +26,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   bool isButtonDisabled = true;
 
-  void disableButton(String emailInputText, String passwordInputText) {
-    if (emailInputText.isEmpty ||
-        passwordInputText.isEmpty ||
+  bool samePasswords() {
+    if (passwordController.text == confirmPasswordController.text) {
+      return true;
+    }
+    return false;
+  }
+
+  void disableButton() {
+    if (emailController.text.isEmpty ||
+        passwordController.text.isEmpty ||
         confirmPasswordController.text.isEmpty) {
       isButtonDisabled = true;
     } else {
@@ -37,6 +48,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
 
+    ref.listen(registerUserStateNotifierProvider, (previous, next) {
+      if (next.isLoading) {
+        context.loaderOverlay.show();
+      } else if (next.hasError) {
+        context.loaderOverlay.hide();
+        ToastOverlay.showToastMessage(
+          next.error.toString(),
+          ToastType.error,
+          context,
+        );
+      } else if (next.hasValue) {
+        context.loaderOverlay.hide();
+        ToastOverlay.showToastMessage(
+          l10n.registerAccountCreatedSuccess,
+          ToastType.success,
+          context,
+        );
+        GoRouter.of(context).pop();
+      }
+    });
+
     return Scaffold(
       appBar: const RegisterAppBarWidget(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -47,7 +79,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
           disabled: isButtonDisabled,
           size: AGButtonSize.m,
           isExpanded: true,
-          onPressed: () {},
+          onPressed: () {
+            if (!samePasswords()) {
+              setState(() {
+                isButtonDisabled = true;
+              });
+              ToastOverlay.showToastMessage(
+                l10n.alertPasswordsDifferent,
+                ToastType.warning,
+                context,
+              );
+              return;
+            }
+            ref.read(registerUserStateNotifierProvider.notifier).register(
+                  email: emailController.text,
+                  password: passwordController.text,
+                );
+          },
           child: Text(l10n.registerScreenButtonText),
         ),
       ),
@@ -82,19 +130,30 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 AGTextfield(
                   label: l10n.emailInputLabel,
                   controller: emailController,
+                  onChanged: (value) {
+                    disableButton();
+                  },
                 ),
                 SizedBox(
                   height: 20.h,
                 ),
                 AGTextfieldPassword(
-                    label: l10n.passwordInputLabel,
-                    controller: passwordController),
+                  label: l10n.passwordInputLabel,
+                  controller: passwordController,
+                  onChanged: (value) {
+                    disableButton();
+                  },
+                ),
                 SizedBox(
                   height: 20.h,
                 ),
                 AGTextfieldPassword(
-                    label: l10n.confirmPasswordInputLabel,
-                    controller: confirmPasswordController),
+                  label: l10n.confirmPasswordInputLabel,
+                  controller: confirmPasswordController,
+                  onChanged: (value) {
+                    disableButton();
+                  },
+                ),
               ],
             ),
           ),

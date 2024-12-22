@@ -142,6 +142,18 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Crear cuenta'**
   String get registerScreenButtonText;
+
+  /// No description provided for @registerAccountCreatedSuccess.
+  ///
+  /// In es, this message translates to:
+  /// **'Cuenta creada con éxito!'**
+  String get registerAccountCreatedSuccess;
+
+  /// No description provided for @alertPasswordsDifferent.
+  ///
+  /// In es, this message translates to:
+  /// **'Contraseñas diferentes'**
+  String get alertPasswordsDifferent;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

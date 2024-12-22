@@ -9,5 +9,10 @@ abstract class LoginDatasource {
     required String password,
   });
 
+  Future<Result<RegisterResponseModel?>> register({
+    required String email,
+    required String password,
+  });
+
 }
 

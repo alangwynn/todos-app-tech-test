@@ -25,8 +25,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
   bool isButtonDisabled = true;
 
-  void disableButton(String emailInputText, String passwordInputText) {
-    if (emailInputText.isEmpty || passwordInputText.isEmpty) {
+  void disableButton() {
+    if (emailController.text.isEmpty || passwordController.text.isEmpty) {
       isButtonDisabled = true;
     } else {
       isButtonDisabled = false;
@@ -104,8 +104,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       ),
                       controller: emailController,
                       onChanged: (value) {
-                        disableButton(
-                            emailController.text, passwordController.text);
+                        disableButton();
                       },
                     ),
                     SizedBox(
@@ -115,8 +114,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       label: l10n.passwordInputLabel,
                       controller: passwordController,
                       onChanged: (value) {
-                        disableButton(
-                            emailController.text, passwordController.text);
+                        disableButton();
                       },
                     ),
                     SizedBox(

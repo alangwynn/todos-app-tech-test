@@ -29,4 +29,10 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get registerScreenButtonText => 'Crear cuenta';
+
+  @override
+  String get registerAccountCreatedSuccess => 'Cuenta creada con éxito!';
+
+  @override
+  String get alertPasswordsDifferent => 'Contraseñas diferentes';
 }

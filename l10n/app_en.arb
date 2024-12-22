@@ -6,5 +6,7 @@
     "loginCreateAccountText": "Create account",
     "registerScreenTitle": "Sign up",
     "confirmPasswordInputLabel": "Confirm password",
-    "registerScreenButtonText": "Create account"
+    "registerScreenButtonText": "Create account",
+    "registerAccountCreatedSuccess": "Account created successfully!",
+    "alertPasswordsDifferent": "Different passwords"
 }

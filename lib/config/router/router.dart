@@ -27,7 +27,7 @@ final router = GoRouter(
     GoRoute(
       name: RegisterScreen.routeName,
       path: RegisterScreen.routeName,
-      builder: (_, __) => RegisterScreen(),
+      builder: (_, __) => const RegisterScreen(),
     ),
   ],
 );
