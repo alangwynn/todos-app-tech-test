@@ -119,6 +119,6 @@ This project is licensed under the MIT License. See the LICENSE file for details
 For questions or suggestions, feel free to reach out:
 
 - **Author:** Alan Gwynn
-- **Email:** [alan.gwynn1999@gmail.com]
+- **Email:** alan.gwynn1999@gmail.com
 
 ---
