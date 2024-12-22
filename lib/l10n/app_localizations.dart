@@ -154,6 +154,54 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Contraseñas diferentes'**
   String get alertPasswordsDifferent;
+
+  /// No description provided for @homeOptionNavBar.
+  ///
+  /// In es, this message translates to:
+  /// **'Inicio'**
+  String get homeOptionNavBar;
+
+  /// No description provided for @profileOptionNavBar.
+  ///
+  /// In es, this message translates to:
+  /// **'Perfil'**
+  String get profileOptionNavBar;
+
+  /// No description provided for @taskListOptionNavBar.
+  ///
+  /// In es, this message translates to:
+  /// **'Listado de tareas'**
+  String get taskListOptionNavBar;
+
+  /// No description provided for @homeScreenTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Bienvenido '**
+  String get homeScreenTitle;
+
+  /// No description provided for @homeScreenTaskList.
+  ///
+  /// In es, this message translates to:
+  /// **'Tareas pendientes'**
+  String get homeScreenTaskList;
+
+  /// No description provided for @taskStatusPending.
+  ///
+  /// In es, this message translates to:
+  /// **'Pendiente'**
+  String get taskStatusPending;
+
+  /// No description provided for @taskStatusCompleted.
+  ///
+  /// In es, this message translates to:
+  /// **'Completado'**
+  String get taskStatusCompleted;
+
+  /// No description provided for @cardUserId.
+  ///
+  /// In es, this message translates to:
+  /// **'Usuario ID: '**
+  String get cardUserId;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

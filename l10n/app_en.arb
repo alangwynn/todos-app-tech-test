@@ -8,5 +8,13 @@
     "confirmPasswordInputLabel": "Confirm password",
     "registerScreenButtonText": "Create account",
     "registerAccountCreatedSuccess": "Account created successfully!",
-    "alertPasswordsDifferent": "Different passwords"
+    "alertPasswordsDifferent": "Different passwords",
+    "homeOptionNavBar": "Home",
+    "profileOptionNavBar": "Profile",
+    "taskListOptionNavBar": "Tasks list",
+    "homeScreenTitle": "Welcome ",
+    "homeScreenTaskList": "Pending tasks",
+    "taskStatusPending": "Pending",
+    "taskStatusCompleted": "Completed",
+    "cardUserId": "User ID: "
 }

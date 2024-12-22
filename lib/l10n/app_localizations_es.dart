@@ -35,4 +35,28 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get alertPasswordsDifferent => 'Contraseñas diferentes';
+
+  @override
+  String get homeOptionNavBar => 'Inicio';
+
+  @override
+  String get profileOptionNavBar => 'Perfil';
+
+  @override
+  String get taskListOptionNavBar => 'Listado de tareas';
+
+  @override
+  String get homeScreenTitle => 'Bienvenido ';
+
+  @override
+  String get homeScreenTaskList => 'Tareas pendientes';
+
+  @override
+  String get taskStatusPending => 'Pendiente';
+
+  @override
+  String get taskStatusCompleted => 'Completado';
+
+  @override
+  String get cardUserId => 'Usuario ID: ';
 }

@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:technical_test_flutter_sr/common/extensions.dart';
 import 'package:technical_test_flutter_sr/common/widgets/widgets.dart';
+import 'package:technical_test_flutter_sr/features/home/presentation/screens/screens.dart';
 import 'package:technical_test_flutter_sr/features/login/presentation/providers/login/login_user_state_notifier.dart';
 import 'package:technical_test_flutter_sr/features/login/presentation/screens/screens.dart';
 import 'package:technical_test_flutter_sr/helpers/helpers.dart';
@@ -50,6 +51,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         );
       } else if (next.hasValue) {
         context.loaderOverlay.hide();
+        GoRouter.of(context).go(HomeScreen.routeName);
       }
     });
 
