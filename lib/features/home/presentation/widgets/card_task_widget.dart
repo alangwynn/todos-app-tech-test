@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:technical_test_flutter_sr/common/extensions.dart';
 import 'package:technical_test_flutter_sr/common/widgets/button_icon.dart';
+import 'package:technical_test_flutter_sr/common/widgets/widgets.dart';
+import 'package:technical_test_flutter_sr/config/theme/theme_provider.dart';
 import 'package:technical_test_flutter_sr/features/home/domain/entities/entities.dart';
 import 'package:technical_test_flutter_sr/features/home/presentation/providers/todos/todos_state_notifier.dart';
 import 'package:technical_test_flutter_sr/features/home/presentation/screens/screens.dart';
@@ -17,6 +19,7 @@ class CardTaskWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
+    final isDarkMode = ref.watch(themeNotifierProvider).isDarkMode;
 
     void confirmDeleteTask() async {
       bool? shouldDelete = await AlertHelper.confirmDeleteTask(context);
@@ -65,6 +68,7 @@ class CardTaskWidget extends ConsumerWidget {
                     ),
                   ),
                   AGButtonIcon(
+                    mode: isDarkMode ? AGButtonMode.dark : AGButtonMode.light,
                     onPressed: confirmDeleteTask,
                     icon: const Icon(
                       Icons.delete,

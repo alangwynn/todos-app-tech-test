@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:technical_test_flutter_sr/config/theme/theme_provider.dart';
 import 'package:technical_test_flutter_sr/config/theme/themes.dart';
 
+/// Standard Textfield
 class AGTextfield extends ConsumerStatefulWidget {
   const AGTextfield({
     this.onChanged,
@@ -23,19 +24,47 @@ class AGTextfield extends ConsumerStatefulWidget {
     super.key,
   });
 
+  /// Callback when textfield change
   final void Function(String)? onChanged;
+
+  /// Text to display inside the widget
   final String? hintText;
+
+  /// Show a prefix on the input
   final Widget? prefixIcon;
+
+  /// Enable or disable textfield suffixIcon
   final Widget? suffixIcon;
+
+  /// On tap prefix do an action
   final VoidCallback? onTapPrefixIcon;
+
+  /// On tap suffix icon do an action
   final VoidCallback? onTapSuffixIcon;
+
+  /// Enable or disable textfield
   final bool enabled;
+
+  /// max length for textfield
   final int? maxLength;
+
+  /// Controller for Textfield
   final TextEditingController? controller;
+
+  /// Auto correct suggestions
   final bool autocorrect;
+
+  /// Enable suggestions for textfield
   final bool enableSuggestions;
+
+  /// Show text or not with obscure text option
   final bool obscureText;
+
+  /// If you want to set a max height for the textfield
+  /// you can use this property
   final int? maxLines;
+
+  /// Label for textfield
   final String label;
 
   @override

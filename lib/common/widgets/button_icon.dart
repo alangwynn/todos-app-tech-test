@@ -3,11 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:technical_test_flutter_sr/common/widgets/widgets.dart';
 import 'package:technical_test_flutter_sr/config/theme/themes.dart';
 
+/// Standard button icon
 class AGButtonIcon extends StatefulWidget {
   const AGButtonIcon({
     required this.onPressed,
     required this.icon,
-    this.identifier,
     this.mode = AGButtonMode.light,
     this.size = AGButtonIconSize.small,
     this.label,
@@ -15,19 +15,23 @@ class AGButtonIcon extends StatefulWidget {
     super.key,
   });
 
+  /// Style definition for button [mode]
   final AGButtonMode mode;
 
+  /// callback action
   final VoidCallback onPressed;
 
+  /// Icon for button
   final Widget icon;
 
+  /// Size for icon button
   final AGButtonIconSize size;
 
+  /// Label text
   final String? label;
 
+  /// Whether it is disabled or not
   final bool disabled;
-
-  final ButtonIconIdentifier? identifier;
 
   @override
   State<AGButtonIcon> createState() => _AGButtonIconState();

@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+/// Standard Toast
 class ToastOverlay {
 
+  /// This method show the toast
   static showToastMessage(String message, ToastType type, BuildContext context) {
 
     FToast fToast = FToast();

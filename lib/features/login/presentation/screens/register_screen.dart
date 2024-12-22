@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:technical_test_flutter_sr/common/extensions.dart';
 import 'package:technical_test_flutter_sr/common/widgets/widgets.dart';
+import 'package:technical_test_flutter_sr/config/theme/theme_provider.dart';
 import 'package:technical_test_flutter_sr/features/login/presentation/providers/register/register_user_state_notifier.dart';
 import 'package:technical_test_flutter_sr/features/login/presentation/widgets/widgets.dart';
 
@@ -56,6 +57,8 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
 
+    final isDarkMode = ref.watch(themeNotifierProvider).isDarkMode;
+
     ref.listen(registerUserStateNotifierProvider, (previous, next) {
       if (next.isLoading) {
         context.loaderOverlay.show();
@@ -84,6 +87,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
         width: double.infinity,
         padding: EdgeInsets.symmetric(horizontal: 24.0.w),
         child: AGButton(
+          mode: isDarkMode ? AGButtonMode.dark : AGButtonMode.light,
           disabled: isButtonDisabled,
           size: AGButtonSize.m,
           isExpanded: true,

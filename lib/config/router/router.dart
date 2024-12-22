@@ -24,7 +24,7 @@ final router = GoRouter(
     GoRoute(
       name: LoginScreen.routeName,
       path: LoginScreen.routeName,
-      builder: (_, __) => const HomeScreen()
+      builder: (_, __) => const LoginScreen()
     ),
     GoRoute(
       name: RegisterScreen.routeName,

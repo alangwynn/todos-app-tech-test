@@ -77,6 +77,7 @@ class _TaskDetailScreenState extends ConsumerState<TaskDetailScreen> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               AGButton(
+                mode: isDarkMode ? AGButtonMode.dark : AGButtonMode.light,
                 isExpanded: true,
                 size: AGButtonSize.m,
                 onPressed: _saveTask,
@@ -88,6 +89,7 @@ class _TaskDetailScreenState extends ConsumerState<TaskDetailScreen> {
                 height: 8.0.h,
               ),
               AGButton(
+                mode: isDarkMode ? AGButtonMode.dark : AGButtonMode.light,
                 isExpanded: true,
                 size: AGButtonSize.m,
                 style: AGButtonStyle.secondary,

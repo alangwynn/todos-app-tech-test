@@ -75,6 +75,7 @@ class ProfileWidget extends ConsumerWidget {
             SizedBox( 
               width: 90.w,
               child: AGButton(
+                mode: appTheme.isDarkMode ? AGButtonMode.dark : AGButtonMode.light,
                 isExpanded: false,
                 onPressed: () {
                   GoRouter.of(context).go(LoginScreen.routeName);

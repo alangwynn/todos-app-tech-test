@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:technical_test_flutter_sr/config/theme/themes.dart';
 
+/// Standard button
 class AGButton extends StatelessWidget {
   const AGButton({
     required this.onPressed,
@@ -14,14 +15,28 @@ class AGButton extends StatelessWidget {
     super.key,
   });
 
+  /// callback action
   final VoidCallback onPressed;
+
+  /// widget child for button
   final Widget child;
+
+  /// Size of the button
   final AGButtonSize size;
+
+  /// Whether the button is disabled or not
   final bool disabled;
+
+  /// expand the button to the full width of the parent
   final bool isExpanded;
+
+  /// Style definition for button [primary, secondary]
   final AGButtonStyle style;
+
+  /// Whether the button is light or dark mode
   final AGButtonMode mode;
 
+  /// Returns padding of the button
   EdgeInsets getPadding() {
     switch (size) {
       case AGButtonSize.s:
@@ -38,6 +53,7 @@ class AGButton extends StatelessWidget {
     }
   }
 
+  /// Returns the main axis size of the button
   MainAxisSize getMainAxisSize() {
     if (isExpanded) {
       return MainAxisSize.max;
@@ -46,6 +62,7 @@ class AGButton extends StatelessWidget {
     }
   }
 
+  /// this method get the theme defined in the application and set this
   ButtonStyle getStyle() {
     if (style == AGButtonStyle.primary && disabled) {
       if (mode == AGButtonMode.light) {
@@ -80,6 +97,7 @@ class AGButton extends StatelessWidget {
     }
   }
 
+  /// returns style from the size
   ButtonStyle getFromSize(ButtonStyle buttonStyle) {
     switch (size) {
       case AGButtonSize.s:

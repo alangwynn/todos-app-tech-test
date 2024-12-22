@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:technical_test_flutter_sr/common/widgets/widgets.dart';
 
+/// Render texfield ready to use in password form
 class AGTextfieldPassword extends StatefulWidget {
   const AGTextfieldPassword({
     required this.controller,
@@ -9,8 +10,13 @@ class AGTextfieldPassword extends StatefulWidget {
     super.key,
   });
 
+  /// Controller for Textfield
   final TextEditingController controller;
+
+  /// Callback when we tap the widget
   final void Function(String)? onChanged;
+
+  /// Label for textfield
   final String label;
 
   @override

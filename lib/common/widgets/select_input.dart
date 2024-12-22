@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/// Standard Select input
 class AGSelectInput extends StatefulWidget {
   const AGSelectInput({
     required this.items,
@@ -9,8 +10,13 @@ class AGSelectInput extends StatefulWidget {
     super.key,
   });
 
+  /// Items of the input
   final List<String> items;
+
+  /// Initial value of the input
   final String value;
+
+  /// Callback action when the input change
   final void Function(String?)? onChanged;
 
   @override

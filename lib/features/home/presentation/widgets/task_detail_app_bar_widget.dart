@@ -14,6 +14,7 @@ class TaskDetailAppBarWidget extends ConsumerWidget implements PreferredSizeWidg
     return AppBar(
       backgroundColor: isDarkMode ? const Color(0xFF252529) : const Color(0xFFF7F7F7),
       leading: AGButtonIcon(
+        mode: isDarkMode ? AGButtonMode.dark : AGButtonMode.light,
         onPressed: () {
           GoRouter.of(context).pop();
         },

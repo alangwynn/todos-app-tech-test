@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:technical_test_flutter_sr/common/extensions.dart';
 import 'package:technical_test_flutter_sr/common/widgets/widgets.dart';
+import 'package:technical_test_flutter_sr/config/theme/theme_provider.dart';
 import 'package:technical_test_flutter_sr/features/home/presentation/screens/screens.dart';
 import 'package:technical_test_flutter_sr/features/login/presentation/providers/login/login_user_state_notifier.dart';
 import 'package:technical_test_flutter_sr/features/login/presentation/screens/screens.dart';
@@ -46,6 +47,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
 
+    final isDarkMode = ref.watch(themeNotifierProvider).isDarkMode;
+
     ref.listen(loginUserStateNotifierProvider, (previous, next) {
       if (next.isLoading) {
         context.loaderOverlay.show();
@@ -80,9 +83,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               Container(
                 width: double.infinity,
                 padding: EdgeInsets.symmetric(horizontal: 24.0.w),
-                decoration: const BoxDecoration(
-                  color: Color(0xFFEAEAEB),
-                  borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                  color: isDarkMode ? const Color.fromARGB(255, 97, 97, 105) : const Color(0xFFEAEAEB),
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30),
                   ),
@@ -100,6 +103,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       style: TextStyle(
                         fontSize: 24.0.sp,
                         fontWeight: FontWeight.w600,
+                        color: isDarkMode ? Colors.white : const Color(0xFF252529),
                       ),
                     ),
                     SizedBox(
@@ -130,6 +134,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       height: 30.h,
                     ),
                     AGButton(
+                      mode: isDarkMode ? AGButtonMode.dark : AGButtonMode.light,
                       size: AGButtonSize.m,
                       isExpanded: true,
                       disabled: isButtonDisabled,

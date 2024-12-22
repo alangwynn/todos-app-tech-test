@@ -56,6 +56,7 @@ class _CreateTaskScreen extends ConsumerState<CreateTaskScreen> {
           width: double.infinity,
           padding: EdgeInsets.symmetric(horizontal: 24.0.w),
           child: AGButton(
+            mode: isDarkMode ? AGButtonMode.dark : AGButtonMode.light,
             isExpanded: true,
             size: AGButtonSize.m,
             onPressed: _saveTask,

@@ -9,6 +9,7 @@ import 'package:technical_test_flutter_sr/config/theme/theme_provider.dart';
 import 'package:technical_test_flutter_sr/config/theme/themes.dart';
 import 'package:technical_test_flutter_sr/features/home/presentation/providers/todos/todos_state_notifier.dart';
 import 'package:technical_test_flutter_sr/features/home/presentation/widgets/widgets.dart';
+import 'package:technical_test_flutter_sr/features/login/presentation/providers/login/login_user_state_notifier.dart';
 
 class HomeWidget extends ConsumerWidget {
   const HomeWidget({super.key});
@@ -19,6 +20,7 @@ class HomeWidget extends ConsumerWidget {
 
     final todos = ref.watch(todosStateNotifierProvider);
     final isDarkMode = ref.watch(themeNotifierProvider).isDarkMode;
+    final user = ref.watch(loginUserStateNotifierProvider).value!;
 
     ref.listen(todosStateNotifierProvider, (previoud, next) {
       if (next.isLoading) {
@@ -61,7 +63,7 @@ class HomeWidget extends ConsumerWidget {
                   ),
                   children: [
                     TextSpan(
-                      text: 'alan',
+                      text: user.name[0].toUpperCase() + user.name.substring(1).toLowerCase(),
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: isDarkMode ? Colors.white : const Color(0xFF252529),
