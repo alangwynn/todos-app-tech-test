@@ -60,6 +60,8 @@ lib/
    flutter run
    ```
 
+   Alternatively, if you are using Visual Studio Code, you can run the application directly using the **Run and Debug** feature of the IDE.
+
 ---
 
 ## Usage
