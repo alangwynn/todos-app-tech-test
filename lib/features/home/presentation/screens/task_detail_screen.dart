@@ -51,8 +51,8 @@ class _TaskDetailScreenState extends ConsumerState<TaskDetailScreen> {
     ref.read(todosStateNotifierProvider.notifier).updateTask(task: updatedTask);
   }
 
-  void _confirmDeleteTask() async {
-    bool? shouldDelete = await AlertHelper.confirmDeleteTask(context);
+  void _confirmDeleteTask(bool isDarkMode) async {
+    bool? shouldDelete = await AlertHelper.confirmDeleteTask(context, isDarkMode);
 
     if (shouldDelete == true) {
       ref
@@ -93,7 +93,9 @@ class _TaskDetailScreenState extends ConsumerState<TaskDetailScreen> {
                 isExpanded: true,
                 size: AGButtonSize.m,
                 style: AGButtonStyle.secondary,
-                onPressed: _confirmDeleteTask,
+                onPressed: () {
+                  _confirmDeleteTask(isDarkMode);
+                },
                 child: Text(
                   l10n.deleteButtonTaskDetailScreen,
                 ),

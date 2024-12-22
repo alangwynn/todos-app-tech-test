@@ -8,7 +8,7 @@ import 'package:technical_test_flutter_sr/common/extensions.dart';
 
 class AlertHelper {
 
-  static Future<bool> confirmDeleteTask(BuildContext context) async {
+  static Future<bool> confirmDeleteTask(BuildContext context, bool isDarkMode) async {
     final l10n = context.l10n;
 
     bool? shouldDelete;
@@ -19,7 +19,12 @@ class AlertHelper {
         builder: (BuildContext context) {
           return CupertinoAlertDialog(
             title: Text(l10n.confirmDeleteTitle),
-            content: Text(l10n.confirmDeleteMessage),
+            content: Text(
+              l10n.confirmDeleteMessage,
+              style: TextStyle(
+                color: isDarkMode ? Colors.white : const Color(0xFF252529),
+              ),
+            ),
             actions: <Widget>[
               CupertinoDialogAction(
                 onPressed: () {
@@ -43,7 +48,12 @@ class AlertHelper {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text(l10n.confirmDeleteTitle),
-            content: Text(l10n.confirmDeleteMessage),
+            content: Text(
+              l10n.confirmDeleteMessage,
+              style: TextStyle(
+                color: isDarkMode ? Colors.white : const Color(0xFF252529),
+              ),
+            ),
             actions: <Widget>[
               TextButton(
                 onPressed: () {

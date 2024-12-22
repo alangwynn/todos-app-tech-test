@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:technical_test_flutter_sr/common/extensions.dart';
-import 'package:technical_test_flutter_sr/common/widgets/button_icon.dart';
 import 'package:technical_test_flutter_sr/common/widgets/widgets.dart';
 import 'package:technical_test_flutter_sr/config/theme/theme_provider.dart';
 import 'package:technical_test_flutter_sr/features/home/domain/entities/entities.dart';
@@ -22,12 +21,10 @@ class CardTaskWidget extends ConsumerWidget {
     final isDarkMode = ref.watch(themeNotifierProvider).isDarkMode;
 
     void confirmDeleteTask() async {
-      bool? shouldDelete = await AlertHelper.confirmDeleteTask(context);
+      bool? shouldDelete = await AlertHelper.confirmDeleteTask(context, isDarkMode);
 
       if (shouldDelete == true) {
-        ref
-            .read(todosStateNotifierProvider.notifier)
-            .deleteTask(id: task.id);
+        ref.read(todosStateNotifierProvider.notifier).deleteTask(id: task.id);
       }
     }
 
@@ -57,6 +54,7 @@ class CardTaskWidget extends ConsumerWidget {
                           style: TextStyle(
                             fontSize: 18.0.sp,
                             fontWeight: FontWeight.bold,
+                            color: isDarkMode ? Colors.white : const Color(0xFF252529),
                           ),
                         ),
                         SizedBox(height: 4.0.h),
@@ -83,10 +81,15 @@ class CardTaskWidget extends ConsumerWidget {
                 children: [
                   Text(
                     "${l10n.cardUserId} ${task.userId}",
-                    style: TextStyle(fontSize: 12.0.sp, color: Colors.grey),
+                    style: TextStyle(
+                      fontSize: 12.0.sp,
+                      color: isDarkMode ? Colors.white :Colors.grey,
+                    ),
                   ),
                   Text(
-                    task.completed ? l10n.taskStatusCompleted : l10n.taskStatusPending,
+                    task.completed
+                        ? l10n.taskStatusCompleted
+                        : l10n.taskStatusPending,
                     style: TextStyle(
                       fontSize: 12.0.sp,
                       color: task.completed ? Colors.green : Colors.red,
