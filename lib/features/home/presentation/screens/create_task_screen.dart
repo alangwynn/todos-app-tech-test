@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:technical_test_flutter_sr/common/extensions.dart';
 import 'package:technical_test_flutter_sr/common/widgets/widgets.dart';
+import 'package:technical_test_flutter_sr/config/theme/theme_provider.dart';
 import 'package:technical_test_flutter_sr/features/home/domain/entities/entities.dart';
 import 'package:technical_test_flutter_sr/features/home/presentation/providers/todos/todos_state_notifier.dart';
 import 'package:technical_test_flutter_sr/features/home/presentation/widgets/widgets.dart';
@@ -46,6 +47,7 @@ class _CreateTaskScreen extends ConsumerState<CreateTaskScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
+    final isDarkMode = ref.watch(themeNotifierProvider).isDarkMode;
 
     return Scaffold(
       appBar: const TaskDetailAppBarWidget(),
@@ -72,7 +74,8 @@ class _CreateTaskScreen extends ConsumerState<CreateTaskScreen> {
               l10n.createTaskScreenTitle,
               style: TextStyle(
                 fontSize: 14.sp,
-                fontWeight: FontWeight.bold
+                fontWeight: FontWeight.bold,
+                color: isDarkMode ? Colors.white : const Color(0xFF252529),
               ),
             ),
             SizedBox(height: 10.0.h),
@@ -100,7 +103,10 @@ class _CreateTaskScreen extends ConsumerState<CreateTaskScreen> {
                 ),
                 Text(
                   l10n.completedTaskDetailScreen,
-                  style: TextStyle(fontSize: 14.sp),
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    color: isDarkMode ? Colors.white : const Color(0xFF252529),
+                  ),
                 ),
               ],
             ),

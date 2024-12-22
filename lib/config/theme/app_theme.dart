@@ -20,7 +20,7 @@ class AppTheme {
       selectionColor: const Color(0xFF268BFF).withOpacity(0.25),
       selectionHandleColor: const Color(0xFF268BFF).withOpacity(0.25)
     ),
-    scaffoldBackgroundColor: const Color(0xFFF7F7F7),
+    scaffoldBackgroundColor: isDarkMode ? const Color(0xFF252529) : const Color(0xFFF7F7F7),
     bottomSheetTheme: const BottomSheetThemeData(
       surfaceTintColor: Colors.white,
     ),

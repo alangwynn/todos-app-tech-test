@@ -34,5 +34,12 @@
     "taskListOptionCompleted": "Completados",
     "taskListOptionAll": "Todos",
     "createTaskButton": "Crear tarea",
-    "createTaskScreenTitle": "Crea una nueva tarea"
+    "createTaskScreenTitle": "Crea una nueva tarea",
+    "appBarTitleUserProfileScreen": "Perfil del Usuario",
+    "nameUserProfileScreen": "Name:",
+    "emailUserProfileScreen": "Correo:",
+    "logoutButtonProfileScreen": "Salir",
+    "hintTextTextFieldFilterTaskList": "Tarea",
+    "toggleButtonDarkMode": "Modo oscuro",
+    "configTitleProfileScreen": "Configuraciones"
 }

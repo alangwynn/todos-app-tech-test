@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:technical_test_flutter_sr/config/theme/theme_provider.dart';
 import 'package:technical_test_flutter_sr/config/theme/themes.dart';
 
-class AGTextfield extends StatefulWidget {
+class AGTextfield extends ConsumerStatefulWidget {
   const AGTextfield({
     this.onChanged,
     this.hintText,
@@ -37,14 +39,15 @@ class AGTextfield extends StatefulWidget {
   final String label;
 
   @override
-  State<AGTextfield> createState() => _AGTextfieldState();
+  ConsumerState<AGTextfield> createState() => _AGTextfieldState();
 }
 
-class _AGTextfieldState extends State<AGTextfield> {
+class _AGTextfieldState extends ConsumerState<AGTextfield> {
   int currentLength = 0;
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = ref.watch(themeNotifierProvider).isDarkMode;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -53,7 +56,9 @@ class _AGTextfieldState extends State<AGTextfield> {
             padding: EdgeInsets.only(bottom: 8.0.sp),
             child: Text(
               widget.label,
-              style: AppTypography.l,
+              style: AppTypography.l.copyWith(
+                color: isDarkMode ? Colors.white : const Color(0xFF252529),
+              ),
             ),
           ),
         TextField(

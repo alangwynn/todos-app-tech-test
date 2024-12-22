@@ -5,10 +5,12 @@ class AGSelectInput extends StatefulWidget {
   const AGSelectInput({
     required this.items,
     required this.onChanged,
+    required this.value,
     super.key,
   });
 
   final List<String> items;
+  final String value;
   final void Function(String?)? onChanged;
 
   @override
@@ -16,7 +18,6 @@ class AGSelectInput extends StatefulWidget {
 }
 
 class _AGSelectInputState extends State<AGSelectInput> {
-  String filterOption = 'Todos';
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class _AGSelectInputState extends State<AGSelectInput> {
       ),
       child: DropdownButton<String>(
         underline: const SizedBox.shrink(),
-        value: filterOption,
+        value: widget.value,
         icon: const Icon(
           Icons.arrow_drop_down,
         ),

@@ -19,6 +19,8 @@ class TasksListHomeWidget extends ConsumerStatefulWidget {
 
 class _TasksListHomeWidgetState extends ConsumerState<TasksListHomeWidget> {
   String filterOption = 'Todos';
+  final _taskTitleController = TextEditingController();
+  String searchQuery = '';
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +40,12 @@ class _TasksListHomeWidgetState extends ConsumerState<TasksListHomeWidget> {
       filteredTasks = tasks;
     }
 
+    if (searchQuery.isNotEmpty) {
+      filteredTasks = filteredTasks.where((task) {
+        return task.title.toLowerCase().contains(searchQuery.toLowerCase());
+      }).toList();
+    }
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -49,6 +57,7 @@ class _TasksListHomeWidgetState extends ConsumerState<TasksListHomeWidget> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   AGSelectInput(
+                    value: filterOption,
                     items: [
                       l10n.taskListOptionAll,
                       l10n.taskListOptionPending,
@@ -71,6 +80,16 @@ class _TasksListHomeWidgetState extends ConsumerState<TasksListHomeWidget> {
                     ),
                   ),
                 ],
+              ),
+              SizedBox(height: 16.0.h),
+              AGTextfield(
+                hintText: l10n.hintTextTextFieldFilterTaskList,
+                controller: _taskTitleController,
+                onChanged: (value) {
+                  setState(() {
+                    searchQuery = value;
+                  });
+                },
               ),
               TasksListWidget(tasks: filteredTasks),
             ],

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:technical_test_flutter_sr/common/extensions.dart';
 import 'package:technical_test_flutter_sr/common/widgets/widgets.dart';
+import 'package:technical_test_flutter_sr/config/theme/theme_provider.dart';
 import 'package:technical_test_flutter_sr/features/home/domain/entities/entities.dart';
 import 'package:technical_test_flutter_sr/features/home/presentation/providers/todos/todos_state_notifier.dart';
 import 'package:technical_test_flutter_sr/features/home/presentation/widgets/widgets.dart';
@@ -64,6 +65,8 @@ class _TaskDetailScreenState extends ConsumerState<TaskDetailScreen> {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
 
+    final isDarkMode = ref.watch(themeNotifierProvider).isDarkMode;
+
     return Scaffold(
       appBar: const TaskDetailAppBarWidget(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -105,15 +108,16 @@ class _TaskDetailScreenState extends ConsumerState<TaskDetailScreen> {
             RichText(
               text: TextSpan(
                 text: l10n.idTaskDetailScreen,
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: isDarkMode ? Colors.white : const Color(0xFF252529),
                 ),
                 children: [
                   TextSpan(
                     text: widget.task.id.toString(),
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontWeight: FontWeight.normal,
+                      color: isDarkMode ? Colors.white : const Color(0xFF252529),
                     ),
                   ),
                 ],
@@ -123,15 +127,16 @@ class _TaskDetailScreenState extends ConsumerState<TaskDetailScreen> {
             RichText(
               text: TextSpan(
                 text: l10n.cardUserId,
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: isDarkMode ? Colors.white : const Color(0xFF252529),
                 ),
                 children: [
                   TextSpan(
                     text: widget.task.userId.toString(),
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontWeight: FontWeight.normal,
+                      color: isDarkMode ? Colors.white : const Color(0xFF252529),
                     ),
                   ),
                 ],
@@ -162,7 +167,10 @@ class _TaskDetailScreenState extends ConsumerState<TaskDetailScreen> {
                 ),
                 Text(
                   l10n.completedTaskDetailScreen,
-                  style: TextStyle(fontSize: 14.sp),
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    color: isDarkMode ? Colors.white : const Color(0xFF252529),
+                  ),
                 ),
               ],
             ),

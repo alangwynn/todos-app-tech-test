@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:technical_test_flutter_sr/common/extensions.dart';
 import 'package:technical_test_flutter_sr/common/widgets/widgets.dart';
+import 'package:technical_test_flutter_sr/config/theme/theme_provider.dart';
 import 'package:technical_test_flutter_sr/config/theme/themes.dart';
 import 'package:technical_test_flutter_sr/features/home/presentation/providers/todos/todos_state_notifier.dart';
 import 'package:technical_test_flutter_sr/features/home/presentation/widgets/widgets.dart';
@@ -17,6 +18,7 @@ class HomeWidget extends ConsumerWidget {
     final l10n = context.l10n;
 
     final todos = ref.watch(todosStateNotifierProvider);
+    final isDarkMode = ref.watch(themeNotifierProvider).isDarkMode;
 
     ref.listen(todosStateNotifierProvider, (previoud, next) {
       if (next.isLoading) {
@@ -55,13 +57,14 @@ class HomeWidget extends ConsumerWidget {
                   text: l10n.homeScreenTitle,
                   style: TextStyle(
                     fontSize: 18.0.sp,
-                    color: const Color(0xFF252529),
+                    color: isDarkMode ? Colors.white : const Color(0xFF252529),
                   ),
-                  children: const [
+                  children: [
                     TextSpan(
                       text: 'alan',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
+                        color: isDarkMode ? Colors.white : const Color(0xFF252529),
                       ),
                     ),
                   ],
@@ -70,7 +73,10 @@ class HomeWidget extends ConsumerWidget {
               SizedBox(height: 20.h),
               Text(
                 l10n.homeScreenTaskList,
-                style: AppTypography.l.copyWith(fontWeight: FontWeight.w600),
+                style: AppTypography.l.copyWith(
+                  fontWeight: FontWeight.w600,
+                  color: isDarkMode ? Colors.white : const Color(0xFF252529),
+                ),
               ),
               TasksListWidget(
                 tasks: (data ?? [])

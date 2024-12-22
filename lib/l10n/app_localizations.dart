@@ -310,6 +310,48 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Crea una nueva tarea'**
   String get createTaskScreenTitle;
+
+  /// No description provided for @appBarTitleUserProfileScreen.
+  ///
+  /// In es, this message translates to:
+  /// **'Perfil del Usuario'**
+  String get appBarTitleUserProfileScreen;
+
+  /// No description provided for @nameUserProfileScreen.
+  ///
+  /// In es, this message translates to:
+  /// **'Name:'**
+  String get nameUserProfileScreen;
+
+  /// No description provided for @emailUserProfileScreen.
+  ///
+  /// In es, this message translates to:
+  /// **'Correo:'**
+  String get emailUserProfileScreen;
+
+  /// No description provided for @logoutButtonProfileScreen.
+  ///
+  /// In es, this message translates to:
+  /// **'Salir'**
+  String get logoutButtonProfileScreen;
+
+  /// No description provided for @hintTextTextFieldFilterTaskList.
+  ///
+  /// In es, this message translates to:
+  /// **'Tarea'**
+  String get hintTextTextFieldFilterTaskList;
+
+  /// No description provided for @toggleButtonDarkMode.
+  ///
+  /// In es, this message translates to:
+  /// **'Modo oscuro'**
+  String get toggleButtonDarkMode;
+
+  /// No description provided for @configTitleProfileScreen.
+  ///
+  /// In es, this message translates to:
+  /// **'Configuraciones'**
+  String get configTitleProfileScreen;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

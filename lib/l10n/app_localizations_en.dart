@@ -113,4 +113,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get createTaskScreenTitle => 'Create a new task';
+
+  @override
+  String get appBarTitleUserProfileScreen => 'User Profile';
+
+  @override
+  String get nameUserProfileScreen => 'Name:';
+
+  @override
+  String get emailUserProfileScreen => 'Correo:';
+
+  @override
+  String get logoutButtonProfileScreen => 'Salir';
+
+  @override
+  String get hintTextTextFieldFilterTaskList => 'Task';
+
+  @override
+  String get toggleButtonDarkMode => 'Dark mode';
+
+  @override
+  String get configTitleProfileScreen => 'Settings';
 }

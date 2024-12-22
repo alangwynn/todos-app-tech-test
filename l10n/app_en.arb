@@ -34,5 +34,12 @@
     "taskListOptionCompleted": "Completed",
     "taskListOptionAll": "Todos",
     "createTaskButton": "Create task",
-    "createTaskScreenTitle": "Create a new task"
+    "createTaskScreenTitle": "Create a new task",
+    "appBarTitleUserProfileScreen": "User Profile",
+    "nameUserProfileScreen": "Name:",
+    "emailUserProfileScreen": "Correo:",
+    "logoutButtonProfileScreen": "Salir",
+    "hintTextTextFieldFilterTaskList": "Task",
+    "toggleButtonDarkMode": "Dark mode",
+    "configTitleProfileScreen": "Settings"
 }
