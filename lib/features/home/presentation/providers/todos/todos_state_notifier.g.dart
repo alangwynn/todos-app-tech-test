@@ -7,7 +7,7 @@ part of 'todos_state_notifier.dart';
 // **************************************************************************
 
 String _$todosStateNotifierHash() =>
-    r'910fc343f1e88071705abc6c514bce3646555d19';
+    r'5cf76bd4b0456242e0eb7b2b8ad592a12fc32a46';
 
 /// See also [TodosStateNotifier].
 @ProviderFor(TodosStateNotifier)

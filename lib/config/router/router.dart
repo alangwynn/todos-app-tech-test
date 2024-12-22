@@ -50,5 +50,10 @@ final router = GoRouter(
         );
       },
     ),
+    GoRoute(
+      name: CreateTaskScreen.routeName,
+      path: CreateTaskScreen.routeName,
+      builder: (_, __) => const CreateTaskScreen(),
+    ),
   ],
 );

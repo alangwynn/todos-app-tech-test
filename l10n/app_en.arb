@@ -29,5 +29,10 @@
     "confirmDeleteTitle": "Alert",
     "confirmDeleteMessage": "¿Are you sure you want to delete the task??",
     "cancelButton": "Cancel",
-    "confirmButton": "Confirm"
+    "confirmButton": "Confirm",
+    "taskListOptionPending": "Pending",
+    "taskListOptionCompleted": "Completed",
+    "taskListOptionAll": "Todos",
+    "createTaskButton": "Create task",
+    "createTaskScreenTitle": "Create a new task"
 }

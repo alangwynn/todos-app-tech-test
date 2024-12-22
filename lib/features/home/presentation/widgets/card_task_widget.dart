@@ -73,10 +73,6 @@ class CardTaskWidget extends ConsumerWidget {
                   )
                 ],
               ),
-              Text(
-                task.description,
-                style: TextStyle(fontSize: 14.0.sp),
-              ),
               SizedBox(height: 8.0.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

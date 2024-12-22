@@ -40,9 +40,9 @@ class TodosStateNotifier extends _$TodosStateNotifier {
     });
   }
 
-  Future<void> updateTask({
+  void updateTask({
     required TaskEntity task,
-  }) async {
+  }) {
     state = const AsyncLoading();
 
     final todos = state.value!;
@@ -61,13 +61,29 @@ class TodosStateNotifier extends _$TodosStateNotifier {
     );
   }
 
-  Future<void> deleteTask({
+  void deleteTask({
     required num id,
-  }) async {
+  }) {
     state = const AsyncLoading();
 
     final todos = state.value!;
     todos.removeWhere((todo) => todo.id == id);
+
+    state = AsyncData(
+      todos,
+    );
+  }
+
+  void createTask({
+    required TaskEntity task,
+  }) {
+    state = const AsyncLoading();
+
+    final todos = state.value!;
+    final newTask = task.copyWith(
+      id: todos.length + 1,
+    );
+    todos.insert(0, newTask);
 
     state = AsyncData(
       todos,

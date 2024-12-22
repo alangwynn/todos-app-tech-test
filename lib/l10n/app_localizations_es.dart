@@ -98,4 +98,19 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get confirmButton => 'Confirmar';
+
+  @override
+  String get taskListOptionPending => 'Pendientes';
+
+  @override
+  String get taskListOptionCompleted => 'Completados';
+
+  @override
+  String get taskListOptionAll => 'Todos';
+
+  @override
+  String get createTaskButton => 'Crear tarea';
+
+  @override
+  String get createTaskScreenTitle => 'Crea una nueva tarea';
 }

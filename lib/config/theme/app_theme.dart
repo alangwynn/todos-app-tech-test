@@ -44,6 +44,9 @@ class AppTheme {
       style: AppButtonStyles.primaryLight,
     ),
     inputDecorationTheme: AppInputDecorationTheme.normal,
+    dropdownMenuTheme: DropdownMenuThemeData(
+      inputDecorationTheme: AppInputDecorationTheme.normal,
+    )
   );
 
   AppTheme copyWith({

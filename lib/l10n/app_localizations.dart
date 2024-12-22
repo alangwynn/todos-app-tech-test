@@ -280,6 +280,36 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Confirmar'**
   String get confirmButton;
+
+  /// No description provided for @taskListOptionPending.
+  ///
+  /// In es, this message translates to:
+  /// **'Pendientes'**
+  String get taskListOptionPending;
+
+  /// No description provided for @taskListOptionCompleted.
+  ///
+  /// In es, this message translates to:
+  /// **'Completados'**
+  String get taskListOptionCompleted;
+
+  /// No description provided for @taskListOptionAll.
+  ///
+  /// In es, this message translates to:
+  /// **'Todos'**
+  String get taskListOptionAll;
+
+  /// No description provided for @createTaskButton.
+  ///
+  /// In es, this message translates to:
+  /// **'Crear tarea'**
+  String get createTaskButton;
+
+  /// No description provided for @createTaskScreenTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Crea una nueva tarea'**
+  String get createTaskScreenTitle;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

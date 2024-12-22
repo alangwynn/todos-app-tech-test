@@ -29,5 +29,10 @@
     "confirmDeleteTitle": "Confirmación",
     "confirmDeleteMessage": "¿Estás seguro que quieres eliminar la tarea?",
     "cancelButton": "Cancelar",
-    "confirmButton": "Confirmar"
+    "confirmButton": "Confirmar",
+    "taskListOptionPending": "Pendientes",
+    "taskListOptionCompleted": "Completados",
+    "taskListOptionAll": "Todos",
+    "createTaskButton": "Crear tarea",
+    "createTaskScreenTitle": "Crea una nueva tarea"
 }
