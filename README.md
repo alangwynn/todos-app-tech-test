@@ -73,13 +73,8 @@ lib/
 - Toggle light/dark mode using the button in the profile screen.
 - Logout via the profile screen.
 
-### Screenshots
-
-#### Light Mode:
-[Insert screenshot here]
-
-#### Dark Mode:
-[Insert screenshot here]
+### Light and Dark mode videos
+[https://drive.google.com/drive/u/1/folders/1J_pyoYlpsNAiNgajoLqA6G6IG-6vupbm]
 
 ---
 
