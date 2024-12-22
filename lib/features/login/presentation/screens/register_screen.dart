@@ -26,6 +26,14 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
 
   bool isButtonDisabled = true;
 
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
+  }
+
   bool samePasswords() {
     if (passwordController.text == confirmPasswordController.text) {
       return true;

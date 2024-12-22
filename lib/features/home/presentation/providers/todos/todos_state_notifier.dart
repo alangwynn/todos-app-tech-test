@@ -5,7 +5,7 @@ import 'package:technical_test_flutter_sr/features/home/presentation/providers/p
 
 part 'todos_state_notifier.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class TodosStateNotifier extends _$TodosStateNotifier {
 
   @override
@@ -38,6 +38,40 @@ class TodosStateNotifier extends _$TodosStateNotifier {
         data ?? [],
       );
     });
+  }
+
+  Future<void> updateTask({
+    required TaskEntity task,
+  }) async {
+    state = const AsyncLoading();
+
+    final todos = state.value!;
+    final index = todos.indexWhere((todo) => todo.id == task.id);
+    
+    final updatedTask = todos[index].copyWith(
+      title: task.title,
+      description: task.description,
+      completed: task.completed,
+    );
+    
+    todos[index] = updatedTask;
+
+    state = AsyncData(
+      todos,
+    );
+  }
+
+  Future<void> deleteTask({
+    required num id,
+  }) async {
+    state = const AsyncLoading();
+
+    final todos = state.value!;
+    todos.removeWhere((todo) => todo.id == id);
+
+    state = AsyncData(
+      todos,
+    );
   }
 
 }

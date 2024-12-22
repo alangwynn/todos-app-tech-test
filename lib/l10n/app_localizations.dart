@@ -202,6 +202,84 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Usuario ID: '**
   String get cardUserId;
+
+  /// No description provided for @saveButtonTaskDetailScreen.
+  ///
+  /// In es, this message translates to:
+  /// **'Guardar'**
+  String get saveButtonTaskDetailScreen;
+
+  /// No description provided for @deleteButtonTaskDetailScreen.
+  ///
+  /// In es, this message translates to:
+  /// **'Eliminar'**
+  String get deleteButtonTaskDetailScreen;
+
+  /// No description provided for @idTaskDetailScreen.
+  ///
+  /// In es, this message translates to:
+  /// **'ID: '**
+  String get idTaskDetailScreen;
+
+  /// No description provided for @titleTaskDetailScreen.
+  ///
+  /// In es, this message translates to:
+  /// **'Título'**
+  String get titleTaskDetailScreen;
+
+  /// No description provided for @descriptionTaskDetailScreen.
+  ///
+  /// In es, this message translates to:
+  /// **'Descripción'**
+  String get descriptionTaskDetailScreen;
+
+  /// No description provided for @completedTaskDetailScreen.
+  ///
+  /// In es, this message translates to:
+  /// **'Tarea completada'**
+  String get completedTaskDetailScreen;
+
+  /// No description provided for @taskActionTaskDetailScreen.
+  ///
+  /// In es, this message translates to:
+  /// **'Acción realizada exitosamente!'**
+  String get taskActionTaskDetailScreen;
+
+  /// No description provided for @taskDeletedMessage.
+  ///
+  /// In es, this message translates to:
+  /// **'Tarea eliminada exitosamente!'**
+  String get taskDeletedMessage;
+
+  /// No description provided for @taskCreatedMessage.
+  ///
+  /// In es, this message translates to:
+  /// **'Tarea creada exitosamente'**
+  String get taskCreatedMessage;
+
+  /// No description provided for @confirmDeleteTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Confirmación'**
+  String get confirmDeleteTitle;
+
+  /// No description provided for @confirmDeleteMessage.
+  ///
+  /// In es, this message translates to:
+  /// **'¿Estás seguro que quieres eliminar la tarea?'**
+  String get confirmDeleteMessage;
+
+  /// No description provided for @cancelButton.
+  ///
+  /// In es, this message translates to:
+  /// **'Cancelar'**
+  String get cancelButton;
+
+  /// No description provided for @confirmButton.
+  ///
+  /// In es, this message translates to:
+  /// **'Confirmar'**
+  String get confirmButton;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

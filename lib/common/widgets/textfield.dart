@@ -62,7 +62,7 @@ class _AGTextfieldState extends State<AGTextfield> {
           autocorrect: widget.autocorrect,
           enableSuggestions: widget.enableSuggestions,
           obscureText: widget.obscureText,
-          maxLines: 1,
+          maxLines: widget.maxLines,
           decoration: InputDecoration(
             filled: true,
             hintText: widget.hintText,

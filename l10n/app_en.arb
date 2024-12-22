@@ -16,5 +16,18 @@
     "homeScreenTaskList": "Pending tasks",
     "taskStatusPending": "Pending",
     "taskStatusCompleted": "Completed",
-    "cardUserId": "User ID: "
+    "cardUserId": "User ID: ",
+    "saveButtonTaskDetailScreen": "Save",
+    "deleteButtonTaskDetailScreen": "Eliminar",
+    "idTaskDetailScreen": "ID: ",
+    "titleTaskDetailScreen": "Title",
+    "descriptionTaskDetailScreen": "Description",
+    "completedTaskDetailScreen": "Task completed",
+    "taskActionTaskDetailScreen": "Action performed successfully!",
+    "taskDeletedMessage": "Task deleted succesfully!",
+    "taskCreatedMessage": "Task created succesfully!",
+    "confirmDeleteTitle": "Alert",
+    "confirmDeleteMessage": "¿Are you sure you want to delete the task??",
+    "cancelButton": "Cancel",
+    "confirmButton": "Confirm"
 }

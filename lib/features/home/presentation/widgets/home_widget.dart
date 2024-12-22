@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:loader_overlay/loader_overlay.dart';
 import 'package:technical_test_flutter_sr/common/extensions.dart';
+import 'package:technical_test_flutter_sr/common/widgets/widgets.dart';
 import 'package:technical_test_flutter_sr/config/theme/themes.dart';
 import 'package:technical_test_flutter_sr/features/home/presentation/providers/todos/todos_state_notifier.dart';
 import 'package:technical_test_flutter_sr/features/home/presentation/widgets/widgets.dart';
@@ -14,6 +17,29 @@ class HomeWidget extends ConsumerWidget {
     final l10n = context.l10n;
 
     final todos = ref.watch(todosStateNotifierProvider);
+
+    ref.listen(todosStateNotifierProvider, (previoud, next) {
+      if (next.isLoading) {
+        context.loaderOverlay.show();
+      } else if (next.hasError) {
+        context.loaderOverlay.hide();
+        ToastOverlay.showToastMessage(
+          next.error.toString(),
+          ToastType.error,
+          context,
+        );
+      } else {
+        context.loaderOverlay.hide();
+        ToastOverlay.showToastMessage(
+          l10n.taskActionTaskDetailScreen,
+          ToastType.success,
+          context,
+        );
+        if (GoRouter.of(context).canPop()) {
+          GoRouter.of(context).pop();
+        }
+      }
+    });
 
     return todos.when(data: (data) {
       return SingleChildScrollView(

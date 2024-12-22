@@ -16,5 +16,18 @@
     "homeScreenTaskList": "Tareas pendientes",
     "taskStatusPending": "Pendiente",
     "taskStatusCompleted": "Completado",
-    "cardUserId": "Usuario ID: "
+    "cardUserId": "Usuario ID: ",
+    "saveButtonTaskDetailScreen": "Guardar",
+    "deleteButtonTaskDetailScreen": "Eliminar",
+    "idTaskDetailScreen": "ID: ",
+    "titleTaskDetailScreen": "Título",
+    "descriptionTaskDetailScreen": "Descripción",
+    "completedTaskDetailScreen": "Tarea completada",
+    "taskActionTaskDetailScreen": "Acción realizada exitosamente!",
+    "taskDeletedMessage": "Tarea eliminada exitosamente!",
+    "taskCreatedMessage": "Tarea creada exitosamente",
+    "confirmDeleteTitle": "Confirmación",
+    "confirmDeleteMessage": "¿Estás seguro que quieres eliminar la tarea?",
+    "cancelButton": "Cancelar",
+    "confirmButton": "Confirmar"
 }

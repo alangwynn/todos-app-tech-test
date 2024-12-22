@@ -7,12 +7,12 @@ part of 'todos_state_notifier.dart';
 // **************************************************************************
 
 String _$todosStateNotifierHash() =>
-    r'579bcdeac023512bd68e908cb74fe39947f4209d';
+    r'910fc343f1e88071705abc6c514bce3646555d19';
 
 /// See also [TodosStateNotifier].
 @ProviderFor(TodosStateNotifier)
-final todosStateNotifierProvider = AutoDisposeAsyncNotifierProvider<
-    TodosStateNotifier, List<TaskEntity>?>.internal(
+final todosStateNotifierProvider =
+    AsyncNotifierProvider<TodosStateNotifier, List<TaskEntity>?>.internal(
   TodosStateNotifier.new,
   name: r'todosStateNotifierProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -22,6 +22,6 @@ final todosStateNotifierProvider = AutoDisposeAsyncNotifierProvider<
   allTransitiveDependencies: null,
 );
 
-typedef _$TodosStateNotifier = AutoDisposeAsyncNotifier<List<TaskEntity>?>;
+typedef _$TodosStateNotifier = AsyncNotifier<List<TaskEntity>?>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

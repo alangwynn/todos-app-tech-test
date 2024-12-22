@@ -59,4 +59,43 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cardUserId => 'User ID: ';
+
+  @override
+  String get saveButtonTaskDetailScreen => 'Save';
+
+  @override
+  String get deleteButtonTaskDetailScreen => 'Eliminar';
+
+  @override
+  String get idTaskDetailScreen => 'ID: ';
+
+  @override
+  String get titleTaskDetailScreen => 'Title';
+
+  @override
+  String get descriptionTaskDetailScreen => 'Description';
+
+  @override
+  String get completedTaskDetailScreen => 'Task completed';
+
+  @override
+  String get taskActionTaskDetailScreen => 'Action performed successfully!';
+
+  @override
+  String get taskDeletedMessage => 'Task deleted succesfully!';
+
+  @override
+  String get taskCreatedMessage => 'Task created succesfully!';
+
+  @override
+  String get confirmDeleteTitle => 'Alert';
+
+  @override
+  String get confirmDeleteMessage => '¿Are you sure you want to delete the task??';
+
+  @override
+  String get cancelButton => 'Cancel';
+
+  @override
+  String get confirmButton => 'Confirm';
 }
