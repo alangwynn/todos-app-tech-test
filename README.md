@@ -73,6 +73,9 @@ lib/
 - Toggle light/dark mode using the button in the profile screen.
 - Logout via the profile screen.
 
+### Here is the apk
+[https://drive.google.com/drive/u/1/folders/1aloWVmB-4opD0vzSB4vlDE3X4_jj-3aL]
+
 ### Light and Dark mode videos
 [https://drive.google.com/drive/u/1/folders/1J_pyoYlpsNAiNgajoLqA6G6IG-6vupbm]
 
